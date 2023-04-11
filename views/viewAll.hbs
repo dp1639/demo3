@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Hello world</h1>
-    <a href="/addProduct">Add a new product</a> <br>
-    <a href="/view">View all</a>
+    <h1>View All product</h1>
+    <ul>
+        {{#each results}}
+        <li>{{name}}
+            <img src="{{picture}}" width="120px" height="100px">
+        </li>
+        {{/each}}
+    </ul>
+
 </body>
 </html>

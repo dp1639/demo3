@@ -23,7 +23,7 @@ app.post('/add', async (req, res) => {
     res.redirect('/')
 })
 //duong dan den database
-const url = 'mongodb+srv://tommy:12345654321@cluster0.lkrga.mongodb.net/test'
+const url = 'mongodb+srv://diopadreco:d1tm3m4y@cluster0.hsu2f0n.mongodb.net/?retryWrites=true&w=majority'
 //import thu vien MongoDB
 const MongoClient = require('mongodb').MongoClient;
 
@@ -37,6 +37,13 @@ async function saveProduct(newProduct) {
 }
 app.get('/addProduct', (req, res) => {
     res.render('add')
+})
+
+app.get('/view', async(req,res)=>{
+    let client = await MongoClient.connect(url);
+    let dbo = client.db("GCH1006")
+    let results = await dbo.collection("product2").find().toArray()
+    res.render('viewAll',{results:results})
 })
 
 const PORT = process.env.PORT || 3000
